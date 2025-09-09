@@ -1,0 +1,22 @@
+Package: biobasismerge
+Type: Package
+Title: Biobasis Daily Met Merge Tool
+Version: 1.0.0
+Author: GitHub Copilot
+Maintainer: GitHub Copilot <copilot@github.com>
+Description: Merge daily meteorological data files with UTC timestamps
+License: MIT
+Encoding: UTF-8
+LazyData: true
+Imports:
+    optparse,
+    readr,
+    dplyr,
+    lubridate,
+    plotly,
+    htmlwidgets,
+    yaml,
+    arrow
+Suggests:
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3

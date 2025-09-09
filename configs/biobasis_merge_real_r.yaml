@@ -1,0 +1,23 @@
+# Biobasis Merge Configuration - Real Data R
+
+# Input and output directories (relative to R/R/ directory)
+input_dir: "O:/Tech_ICOS/DATA/GL-ZaH/1.raw/met_biobasis"
+output_dir: "../../data/output/R"
+
+# Date range (YYYYMMDD format) - 8 months of 2025 data
+date_start: "20250101"
+date_end: "20250901"
+
+# File naming convention
+file_prefix: "Biobasis"
+station_id: "MM1"
+
+# Logging
+log_level: "INFO"
+
+# Output format options
+output_formats:
+  parquet: true
+  csv_gz: true
+  metadata: true
+  plots: true
