@@ -13,7 +13,7 @@ from biobasis_merge_py.plots import (
 def test_determine_plot_columns():
     """Test plot column determination."""
     df = pd.DataFrame({
-        'TIMESTAMP': pd.date_range('2024-01-01', periods=10, freq='30T'),
+        'TIMESTAMP': pd.date_range('2024-01-01', periods=10, freq='30min'),
         'RECORD': range(10),
         'temperature': [20.1, 20.2, 20.3] * 3 + [20.1],
         'humidity': [65.5, 66.0, 65.8] * 3 + [65.5],

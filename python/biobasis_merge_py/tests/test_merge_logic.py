@@ -76,28 +76,24 @@ def test_create_complete_time_index():
     """Test complete time index creation."""
     date_start = datetime(2024, 1, 1)
     date_end = datetime(2024, 1, 1)  # Same day
-    
+
     index = create_complete_time_index(date_start, date_end)
-    
+
     # Should have 48 timestamps for one day (00:00 to 23:30 at 30-min intervals)
     assert len(index) == 48
-    assert index[0] == pd.Timestamp('2024-01-01 00:00:00', tz='UTC')
-    assert index[-1] == pd.Timestamp('2024-01-01 23:30:00', tz='UTC')
-
-
+    assert index[0] == pd.Timestamp('2024-01-01 00:00:00')
+    assert index[-1] == pd.Timestamp('2024-01-01 23:30:00')
 def test_create_complete_time_index_multi_day():
     """Test complete time index for multiple days."""
     date_start = datetime(2024, 1, 1)
     date_end = datetime(2024, 1, 2)  # Two days
-    
+
     index = create_complete_time_index(date_start, date_end)
-    
+
     # Should have 96 timestamps for two days
     assert len(index) == 96
-    assert index[0] == pd.Timestamp('2024-01-01 00:00:00', tz='UTC')
-    assert index[-1] == pd.Timestamp('2024-01-02 23:30:00', tz='UTC')
-
-
+    assert index[0] == pd.Timestamp('2024-01-01 00:00:00')
+    assert index[-1] == pd.Timestamp('2024-01-02 23:30:00')
 def test_reindex_to_complete_grid():
     """Test reindexing to complete 30-minute grid."""
     # Create sparse dataframe
@@ -156,7 +152,7 @@ def test_get_merge_summary():
     )
     # Add more rows to complete a day worth of data
     complete_timestamps = pd.date_range(
-        '2024-01-01 00:00:00', '2024-01-01 23:30:00', freq='30T', tz='UTC'
+        '2024-01-01 00:00:00', '2024-01-01 23:30:00', freq='30min'
     )
     df = pd.DataFrame({
         'TIMESTAMP': complete_timestamps,

@@ -63,7 +63,7 @@ def create_complete_time_index(date_start: datetime, date_end: datetime, freq: s
     complete_index = pd.date_range(
         start=start_timestamp,
         end=end_timestamp,
-        freq=freq
+        freq=freq.replace('T', 'min') if 'T' in freq else freq
     )
     
     logger.info(f"Created complete time index with {len(complete_index)} timestamps")
